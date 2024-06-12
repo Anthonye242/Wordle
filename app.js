@@ -1,4 +1,3 @@
-/*-------------- Constants -------------*/
 const words = ["APPLE", "CHAIR", "BAKER", "LUCKY", "BEACH", "HAPPY", "PIANO", "SMILE", "TIGER", "JUICE",
     "MUSIC", "GIANT", "CANDY", "DOLPH", "EAGLE", "FAIRY", "GOOSE", "HAPPY", "IGLOO", "JOKER",
     "KARMA", "LEMON", "MAGIC", "NIGHT", "OASIS", "PARTY", "QUEEN", "RADIO", "SUNNY", "TANGO",
