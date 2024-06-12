@@ -1,0 +1,94 @@
+html,
+body{
+    background: var(--default);
+}
+
+:root {
+    --default: #121213;
+    --empty: #383636;
+    --wrong: #867c30;
+    --right: #387d15;
+}
+#game {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 600px;
+}
+
+.grid{
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(5, auto);
+}
+
+.box {
+    width: 60px;
+    height: 60px;
+    border: 2px solid;
+    margin: 5px;
+    color: white;
+    text-transform: uppercase;
+    display: grid;
+    place-items: center;
+    font-family: Georgia, serif;
+    font-size: 25px;
+}
+
+.box.empty {
+    background: var(--empty);
+}
+
+.box.right{
+    background: var(--right);
+}
+
+.box.wrong{
+    background: var(--wrong);
+}
+
+header {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 55px;
+    color: white;
+}
+
+h2 {
+    font-size: 35px;
+    color: white
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.keyboard button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#deleteBtn, #submitBtn {
+    width: 80px;
+    height: 40px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+

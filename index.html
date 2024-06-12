@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle</title>
-    <script src="./app.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header>
         <h1>Wordle</h1>
-        <p id="result-display"></p>
+        <h2>Perfectly crafted to test your brain</h2>
     </header>
-    <main>
-        
-    </main>
-    
+    <div id="game">
+        <div class="grid">
+            <div class="box wrong"></div>
+            <div class="box right"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <div class="keyboard">
+        <button id="deleteBtn">Delete</button>
+    </div>
+    <script src="./app.js" defer></script>
 </body>
 </html>
