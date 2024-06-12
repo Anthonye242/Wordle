@@ -92,3 +92,10 @@ h2 {
     cursor: pointer;
 }
 
+.win-message {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+}
