@@ -51,9 +51,9 @@ const state = {
  /*-------------- Functions -------------*/
 function renderKeyboard() {
     keyboard.innerHTML = '';
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
  
-    for (let letter of alphabet) {
+    for (let letter of alphabets) {
         const button = document.createElement('button');
         button.textContent = letter;
         button.addEventListener('click', function() {
@@ -251,5 +251,5 @@ function startup() {
  
  /*----------- Event Listeners ----------*/
  document.addEventListener('keydown', handleKeydown);
- 
+
  startup();

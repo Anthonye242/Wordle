@@ -1,6 +1,6 @@
-html,
-body{
+body {
     background: var(--default);
+    font-family: Georgia, serif;
 }
 
 :root {
@@ -9,6 +9,79 @@ body{
     --wrong: #867c30;
     --right: #387d15;
 }
+
+header {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 55px;
+    color: white;
+}
+
+h2 {
+    font-size: 35px;
+    color: white;
+}
+
+#instructions {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    color: #333;
+}
+
+#instructions h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#instructions p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#instructions ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+#instructions ul li {
+    margin-bottom: 5px;
+}
+
+#instructions ul li .box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.start-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.start-button-container button {
+    width: 150px; /* Adjust button width as needed */
+    height: 40px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
 #game {
     display: grid;
     place-items: center;
@@ -16,10 +89,10 @@ body{
     height: 600px;
 }
 
-.grid{
+.grid {
     display: grid;
-    grid-template-rows: repeat(5, auto);
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(5, 60px); /* Adjust based on your design */
+    gap: 10px; /* Adjust spacing between boxes */
 }
 
 .box {
@@ -39,28 +112,12 @@ body{
     background: var(--empty);
 }
 
-.box.right{
+.box.right {
     background: var(--right);
 }
 
-.box.wrong{
+.box.wrong {
     background: var(--wrong);
-}
-
-header {
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 55px;
-    color: white;
-}
-
-h2 {
-    font-size: 35px;
-    color: white
 }
 
 .keyboard {

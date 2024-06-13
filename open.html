@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Wordle</h1>
+        <h2>Perfectly crafted to test your brain</h2>
+    </header>
+    <div id="start-page">
+        <div id="instructions">
+            <h3>How to Play</h3>
+            <p>Fill each row with letters to guess the target word. The boxes will change color:</p>
+            <ul>
+                <li><span class="box empty"></span> - Empty box</li>
+                <li><span class="box right"></span> - Correct letter in the right place</li>
+                <li><span class="box wrong"></span> - Correct letter in the wrong place</li>
+            </ul>
+            <p>You have 5 attempts to guess the word. Good luck!</p>
+        </div>
+        <div class="start-button-container">
+            <button id="startButton">Start Game</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startButton = document.getElementById('startButton');
+            startButton.addEventListener('click', function() {
+                // Redirect to game.html when start button is clicked
+                window.location.href = './game.html';
+            });
+        });
+    </script>
+</body>
+</html>
