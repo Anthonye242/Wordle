@@ -49,7 +49,7 @@ const state = {
  const feedbackElement = document.querySelector('#feedback');
  
  /*-------------- Functions -------------*/
- function renderKeyboard() {
+function renderKeyboard() {
     keyboard.innerHTML = '';
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
  
@@ -61,7 +61,12 @@ const state = {
         });
         keyboard.appendChild(button);
     }
- }
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.addEventListener('click', handleDelete);
+    keyboard.appendChild(deleteBtn);
+}
  
  function handleInput(letter) {
     if (state.currentCol < 5) {
@@ -69,7 +74,7 @@ const state = {
         state.currentCol++;
         updateGrid();
     }
- }
+}
  
  function handleDelete() {
     if (state.currentCol > 0) {
@@ -77,22 +82,45 @@ const state = {
         state.grid[state.currentRow][state.currentCol] = '';
         updateGrid();
     }
- }
+}
  
- function handleSubmit() {
+function handleSubmit() {
     if (state.currentCol === 5) {
         const guess = state.grid[state.currentRow].join('');
- 
+
         if (isWordValid(guess)) {
             revealWord(guess);
             console.log('Submitted word:', guess);
         } else {
             console.log('Invalid word');
+            return;
+        }
+
+        const isWinner = state.targetWord === guess.toUpperCase();
+        const isGameOver = state.currentRow === maxGuesses - 1;
+
+        if (isWinner) {
+            console.log('You won!');
+            const winMessage = document.createElement('div');
+            winMessage.textContent = 'Congratulations! You guessed the word correctly!';
+            winMessage.classList.add('win-message');
+            gameElement.appendChild(winMessage);
+            showRestartButton();
+        } else if (isGameOver) {
+            console.log('Game over!');
+            const loseMessage = document.createElement('div');
+            loseMessage.textContent = `You lost! The word was ${state.targetWord}`;
+            loseMessage.classList.add('lose-message');
+            gameElement.appendChild(loseMessage);
+            showRestartButton();
+        } else {
+            state.currentRow++;
+            clearPreviousWord();
         }
     }
- }
+}
  
- function handleKeydown(event) {
+function handleKeydown(event) {
     const key = event.key.toUpperCase();
  
     if (key === 'ENTER') {
@@ -102,15 +130,15 @@ const state = {
     } else if (/^[A-Z]$/.test(key)) {
         handleInput(key);
     }
- }
+}
  
- function clearPreviousWord() {
+function clearPreviousWord() {
     state.grid[state.currentRow] = Array(5).fill('');
     state.currentCol = 0;
     updateGrid();
- }
+}
  
- function drawBox(container, row, col, letter = '') {
+function drawBox(container, row, col, letter = '') {
     const box = document.createElement('div');
     box.className = 'box';
     box.id = `box${row}${col}`;
@@ -118,8 +146,7 @@ const state = {
  
     container.appendChild(box);
     return box;
- }
- 
+}
  function drawGrid(container) {
     const grid = document.createElement('div');
     grid.className = 'grid';
@@ -130,22 +157,22 @@ const state = {
         }
     }
     container.appendChild(grid);
- }
+}
  
- function updateGrid() {
+function updateGrid() {
     for (let i = 0; i < state.grid.length; i++) {
         for (let j = 0; j < state.grid[i].length; j++) {
             const box = document.getElementById(`box${i}${j}`);
             box.textContent = state.grid[i][j];
         }
     }
- }
+}
  
- function isWordValid(word) {
+function isWordValid(word) {
     return words.includes(word.toUpperCase());
- }
+}
  
- function occurrencesInWord(word, letter) {
+function occurrencesInWord(word, letter) {
     let result = 0;
     for (let i = 0; i < word.length; i++) {
         if (word[i] === letter) {
@@ -153,9 +180,9 @@ const state = {
         }
     }
     return result;
- }
+}
  
- function revealWord(guess) {
+function revealWord(guess) {
     const row = state.currentRow;
     const animationDuration = 500; // ms
     const incorrectLetters = []; // Store incorrect letters for feedback
@@ -187,30 +214,40 @@ const state = {
         const feedback = `Incorrect letters for row ${row + 1}: ${incorrectLetters.join(', ')}`;
         feedbackElement.textContent = feedback;
     }
-
-    const isWinner = targetWord === guessWord;
-    const isGameOver = state.currentRow === maxGuesses - 1;
-
-    if (isWinner) {
-        console.log('You won!');
-        const winMessage = document.createElement('div');
-        winMessage.textContent = 'Congratulations! You guessed the word correctly!';
-        winMessage.classList.add('win-message');
-        gameElement.appendChild(winMessage);
-    } else if (isGameOver) {
-        console.log('Game over!');
-    } else {
-        state.currentRow++;
-        clearPreviousWord();
-    }
 }
- 
- function startup() {
+
+function showRestartButton() {
+    const restartButton = document.createElement('button');
+    restartButton.textContent = 'Restart';
+    restartButton.classList.add('restart-button');
+    restartButton.addEventListener('click', resetGame);
+    gameElement.appendChild(restartButton);
+}
+
+function resetGame() {
+    // Reset the game state
+    state.targetWord = words[Math.floor(Math.random() * words.length)];
+    state.grid = Array(5).fill().map(() => Array(5).fill(''));
+    state.currentRow = 0;
+    state.currentCol = 0;
+
+    // Clear the game element
+    gameElement.innerHTML = '';
+
+    // Redraw the grid and keyboard
+    drawGrid(gameElement);
+    renderKeyboard();
+    feedbackElement.textContent = '';
+
+    console.log('New target word:', state.targetWord);
+}
+
+function startup() {
     const game = document.getElementById('game');
     drawGrid(game);
     renderKeyboard();
     console.log(state.targetWord)
- }
+}
  
  /*----------- Event Listeners ----------*/
  document.addEventListener('keydown', handleKeydown);

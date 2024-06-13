@@ -99,3 +99,22 @@ h2 {
     text-align: center;
     margin-top: 20px;
 }
+
+.lose-message {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(232, 0, 0);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.restart-button {
+    width: 80px;
+    height: 40px;
+    margin: 5px;
+    font-size: 20px;
+    border-radius: 4px;
+    background-color: #387d15;
+    border: 1px solid #ccc;
+    cursor: grabbing;
+}
