@@ -1,6 +1,6 @@
 # Wordle
 
-![Screenshot/Logo](/Users/anthonytheking/Desktop/Screenshot 2024-06-14 at 3.01.53 AM.png)
+![Screenshot/Logo](https://i.imgur.com/kDW69iZ.png)
 
 ## Game Description
 
@@ -24,7 +24,7 @@ You can play the game by visiting the following link: [Wordle Game](https://anth
    - **Gray**: Incorrect letter.
 4. Repeat the process until you guess the correct word or run out of attempts.
 
-For detailed planning materials, visit the planning section in the repository: [Wordle Doc](https://github.com/Anthonye242/Wordle.git)
+For detailed planning materials, visit the Wordle.txt in the repository: [Wordle Text](https://github.com/Anthonye242/Wordle/blob/main/Wordle.txt)
 
 ## Attributions
 
