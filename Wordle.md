@@ -47,3 +47,4 @@ Planned future enhancements for the game include:
 - Enhancing the user interface with animations and sound effects.
 - Tracking and displaying player statistics and high scores.
 - Making the game mobile-responsive for better gameplay on smartphones and tablets.
+
