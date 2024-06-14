@@ -12,7 +12,7 @@ I chose to create Wordle because it offers a simple yet challenging gameplay exp
 
 ## Getting Started
 
-You can play the game by visiting the following link: [Wordle Game](https://github.com/Anthonye242/Wordle.git)
+You can play the game by visiting the following link: [Wordle Game](https://anthonye242.github.io/Wordle/open.html)
 
 ### Instructions
 
