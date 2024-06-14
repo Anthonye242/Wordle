@@ -14,7 +14,7 @@ I chose to create Wordle because it offers a simple yet challenging gameplay exp
 
 You can play the game by visiting the following link: [Wordle Game](https://anthonye242.github.io/Wordle/open.html)
 
-### Instructions
+### Instructions 
 
 1. Enter a five-letter word in the input field.
 2. Press the "Submit" button to make your guess.
